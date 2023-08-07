@@ -1,6 +1,6 @@
 # TC-WAR
 creating the card game war in python
-
+This is test from gitBash
 1- create a object class for the deck
 #deck has 52 cards
 #deck is randomily shuffled at the beggining of every game
