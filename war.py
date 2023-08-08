@@ -93,12 +93,14 @@ def game(player1, player2):
             print("player2 won this round")
             player2.append(card2)
             player2.append(card1)
+        elif card1.value == card2.value:
+            x= war(1)
+            print(x)
         if i==50 or i== 100 or i==200 or i==300 or i==400 or i ==500 or i ==600:
             input("press enter to continue")
         if i==1000 or i== 1500 or i==2000 or i==3000 or i==4000 or i ==5000 or i ==6000:
             input("press enter to continue")
-        else:
-            war(player1, player2, card1, card2)
+            
             
         
             
@@ -113,7 +115,8 @@ def game(player1, player2):
 #1 card down and one turned up
 #compete to see whos the highest 
 # #if they are equal restart
-#def war():
+def war(x):
+    return x*5
 
 
 
