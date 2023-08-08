@@ -54,12 +54,10 @@ def main():
     deck = Deck()
     half = len(deck.cards) // 2
     player1 = deck.cards[:half]
-    player2 = deck.cards[half:]
-#delete downwards this line incluso   
+    player2 = deck.cards[half:]   
         #player1card,player2card=game(player1, player2)
-        #if player1card > player2card:
-    game(player1, player2)
-        
+    winner=game(player1, player2)
+    print(winner) 
         
 
 
@@ -99,6 +97,11 @@ def game(player1, player2):
             input("press enter to continue")
         if i==1000 or i== 1500 or i==2000 or i==3000 or i==4000 or i ==5000 or i ==6000:
             input("press enter to continue")
+    if len(player1) == 0:
+        return f"player 2 is the winner"
+    if len(player2) == 0:
+        return f"player 1 is the winner"
+    
             
             
         
@@ -111,6 +114,8 @@ def game(player1, player2):
 #compete to see whos the highest 
 # #if they are equal restart
 def war(player1, player2, card1, card2):
+    card3=[]
+    card4=[]
     pocket1=[]
     pocket2=[]
     while True:
