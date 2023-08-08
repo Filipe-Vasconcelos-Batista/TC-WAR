@@ -119,9 +119,9 @@ def war(player1, player2, card1, card2):
         print(f"player 1 \n{format_hand(player1)}")
         print(f"player 2 \n{format_hand(player2)}")
 #delete upwards from this line incluso
-        pocket1.append(card1.pop())
+        pocket1.append(card1)
         pocket1.append(player1.pop(0))
-        pocket2.append(card2.pop())
+        pocket2.append(card2)
         pocket2.append(player1.pop(0))
         print(f"{pocket1} \n and p2 {pocket2}")
         print("The two players have setted a card face down on the table !!!!")
