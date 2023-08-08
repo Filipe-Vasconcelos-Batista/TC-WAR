@@ -49,19 +49,38 @@ class Deck:
             cards_str += str(card) + "\n"
         return cards_str
                 
+def main():
+    #26 cards for each player
+    deck = Deck()
+    half = len(deck.cards) // 2
+    player1 = deck.cards[:half]
+    player2 = deck.cards[half:]
+    #game(player1, player2)
+    
+    print(f"player 1 \n{format_hand(player1)}")
+    print(f"player 2 \n{format_hand(player2)}")
+    
+
+def format_hand(hand):
+    hand_str = ""
+    for card in hand:
+        hand_str += str(card) + "\n"
+    return hand_str
+
+if __name__ == "__main__":
+    main()
 
 
 
-deck1 = Deck()
-print(deck1)
 
 
 #cards are ,4A ,4K ,4Q ,4J ,410 ,49 ,48 ,47 ,46 ,45 ,44 ,43, 4*2
  #in the battle the bigger the number allways wins
 
 #3-make the random distribution of the 52 cards
-#26 cards for each polayer
-#maybe a list of random cards #this list as to keep the same order through the game
+#26 cards for each player
+#maybe a list of random cards 
+# #this list as to keep the same order through the game
 #the player cannot see his cards
 
 
@@ -70,12 +89,12 @@ print(deck1)
 
 # 4- make the game run without the war element
 #every turn two cards are played #the player with the bigger card wins
-
+#def game():
 
 #5-make the war element of the game
 #1 card down and one turned up
 #compete to see whos the highest #if they are equal restart
-
+#def war():
 
 #6- create the winning condition(in this case the total absortion of the deck by one player?)
  #????
@@ -83,3 +102,5 @@ print(deck1)
 
 #7- give out a victory message
 #You are victorious
+# this is for test porpuses only mainly to check if the game pulls the right cards
+#before completion this has to be deleted
