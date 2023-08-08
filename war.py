@@ -54,12 +54,10 @@ def main():
     deck = Deck()
     half = len(deck.cards) // 2
     player1 = deck.cards[:half]
-    player2 = deck.cards[half:]
-#delete downwards this line incluso   
+    player2 = deck.cards[half:]   
         #player1card,player2card=game(player1, player2)
-        #if player1card > player2card:
-    game(player1, player2)
-        
+    winner=game(player1, player2)
+    print(winner) 
         
 
 
@@ -80,7 +78,7 @@ def game(player1, player2):
     i=0
     while len(player1) > 0 and len(player2) > 0:
         print(f"player 1 has {len(player1)} cards and player 2 has {len(player2)} cards")
-        #input("press enter to continue")
+        input("press enter to continue")
         i = i+ 1
         card1 = player1.pop(0)
         card2 = player2.pop(0)
@@ -93,27 +91,64 @@ def game(player1, player2):
             print("player2 won this round")
             player2.append(card2)
             player2.append(card1)
+        elif card1.value == card2.value:
+            player1, player2 =war(player1, player2, card1, card2)
         if i==50 or i== 100 or i==200 or i==300 or i==400 or i ==500 or i ==600:
             input("press enter to continue")
         if i==1000 or i== 1500 or i==2000 or i==3000 or i==4000 or i ==5000 or i ==6000:
             input("press enter to continue")
-        else:
-            war(player1, player2, card1, card2)
+    if len(player1) == 0:
+        return f"player 2 is the winner"
+    if len(player2) == 0:
+        return f"player 1 is the winner"
+    
+            
             
         
             
     
-    # this is for test porpuses only mainly to check if the game pulls the right cards
-#before completion this has to be deleted     
-    print(f"player 1 \n{format_hand(player1)}")
-    print(f"player 2 \n{format_hand(player2)}")
-#delete upwards from this line incluso
+    
 
 #5-make the war element of the game
 #1 card down and one turned up
 #compete to see whos the highest 
 # #if they are equal restart
-#def war():
+def war(player1, player2, card1, card2):
+    card3=[]
+    card4=[]
+    pocket1=[]
+    pocket2=[]
+    while True:
+        # this is for test porpuses only mainly to check if the game pulls the right cards
+#before completion this has to be deleted     
+        print(f"player 1 \n{format_hand(player1)}")
+        print(f"player 2 \n{format_hand(player2)}")
+#delete upwards from this line incluso
+        pocket1.append(card1)
+        pocket1.append(player1.pop(0))
+        pocket2.append(card2)
+        pocket2.append(player1.pop(0))
+        print(f"{pocket1} \n and p2 {pocket2}")
+        print("The two players have setted a card face down on the table !!!!")
+        card1=player1.pop(0)
+        card2=player2.pop(0)
+        print(f"player one sets a {card1} on the table against player two{card2} ")
+        if card1.value > card2.value:
+            player1.append(pocket1)
+            player1.append(pocket2)
+            player1.append(card2)
+            player1.append(card1)
+            return player1,player2
+        elif card1.value < card2.value:
+            player2.append(pocket1)
+            player2.append(pocket2)
+            player2.append(card2)
+            player2.append(card1)
+            return player1,player2
+        elif card1.value==card2.value:
+            continue
+        
+    
 
 
 
